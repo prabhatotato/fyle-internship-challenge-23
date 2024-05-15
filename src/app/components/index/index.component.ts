@@ -13,14 +13,18 @@ export class IndexComponent {
   @Input() perPage: number = 10;
 
   onNextPage() {
+    console.log('nextpage clicked ', this.nextPage);
+    
     this.nextPage.emit();
   }
 
   onPrevPage() {
+    console.log('nextprevPage clicked ', this.prevPage);
     this.prevPage.emit();
   }
 
   onUpdatePerPage() {
+    console.log('UpdatePerPage clicked ', this.perPage);
     this.updatePerPage.emit(this.perPage);
   }
 }

@@ -1,6 +1,6 @@
-<div *ngIf="user">
-    <img [src]="user.avatar_url" alt="Avatar">
-    <h2>{{ user.name }}</h2>
-    <p>{{ user.bio }}</p>
-    <p>Followers: {{ user.followers }}</p>
-  </div>
+<div *ngIf="user" class="flex flex-col items-center">
+  <img [src]="user.avatar_url" alt="Avatar" class="w-24 h-24 rounded-full mb-4">
+  <h2 class="text-xl font-bold mb-2">{{ user.name }}</h2>
+  <p class="text-gray-700 mb-2">{{ user.bio }}</p>
+  <p class="text-gray-700">Followers: {{ user.followers }}</p>
+</div>

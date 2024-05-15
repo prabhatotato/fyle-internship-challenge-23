@@ -1,10 +1,24 @@
-<div>
-    <button (click)="onPrevPage()">Previous</button>
-    <span>Page: {{ currentPage }}</span>
-    <button (click)="onNextPage()">Next</button>
-    <select [(ngModel)]="perPage" (change)="onUpdatePerPage()">
-      <option value="5">5 per page</option>
-      <option value="10">10 per page</option>
-      <option value="20">20 per page</option>
-    </select>
-  </div>
+<div class="flex items-center justify-center mt-8">
+  <button 
+    (click)="onPrevPage()" 
+    class="bg-blue-500 text-white px-4 py-2 rounded-l-lg focus:outline-none hover:bg-blue-600"
+  >
+    Previous
+  </button>
+  <span class="px-4 py-2 bg-gray-200">{{ currentPage }}</span>
+  <button 
+    (click)="onNextPage()" 
+    class="bg-blue-500 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-blue-600"
+  >
+    Next
+  </button>
+  <select 
+    [(ngModel)]="perPage" 
+    (change)="onUpdatePerPage()" 
+    class="ml-4 px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
+  >
+    <option value="5">5 per page</option>
+    <option value="10">10 per page</option>
+    <option value="20">20 per page</option>
+  </select>
+</div>

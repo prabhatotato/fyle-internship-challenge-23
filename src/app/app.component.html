@@ -1,20 +1,48 @@
-<div>
-  <app-search (searchUser)="fetchUser($event)"></app-search>
-</div>
+<div class="container mx-auto px-4 py-8">
+  <!-- Search Component -->
+  <div class="mb-8">
+    <app-search (searchUser)="fetchUser($event)"></app-search>
+  </div>
 
-<div *ngIf="!userFetchError && user">
-  <app-user [user]="user"></app-user>
-</div>
-<ng-container *ngIf="!userFetchError; else userError">
-  <div *ngIf="user && repositories.length === 0">No repositories found</div>
-</ng-container>
-<ng-template #userError>
-  <div *ngIf="errorMessage">Error: {{ errorMessage }}</div>
-</ng-template>
+  <!-- User Component -->
+  <div *ngIf="user && !userFetchError" class="mb-8">
+    <app-user [user]="user"></app-user>
+  </div>
 
-<div *ngIf="!repoFetchError && repositories.length > 0">
-  <app-repo [repositories]="repositories"></app-repo>
+  <!-- User Error Message -->
+  <ng-container *ngIf="userFetchError; else userContent">
+    <div class="bg-red-100 text-red-800 px-4 py-2 mb-4 rounded">
+      Error fetching user information: {{ errorMessage }}
+    </div>
+  </ng-container>
+
+  <!-- User Content -->
+  <ng-template #userContent>
+    <div *ngIf="user && repositories.length === 0" class="text-gray-700">
+      No repositories found
+    </div>
+  </ng-template>
+
+  <!-- Repo Component -->
+  <div *ngIf="repositories.length > 0 && !repoFetchError" class="mb-8">
+    <app-repo [repositories]="repositories"></app-repo>
+  </div>
+
+  <!-- Repo Error Message -->
+  <ng-container *ngIf="repoFetchError; else repoContent">
+    <div class="bg-red-100 text-red-800 px-4 py-2 mb-4 rounded">
+      Error fetching repositories: {{ errorMessage }}
+    </div>
+  </ng-container>
+
+  <!-- Repo Content -->
+  <ng-template #repoContent>
+    <div *ngIf="repositories.length === 0 && !userFetchError" class="text-gray-700">
+      No repositories found
+    </div>
+  </ng-template>
+
+  <!-- Index Component -->
+
+  <app-index></app-index>
 </div>
-<ng-template #repoError>
-  <div *ngIf="errorMessage">Error: {{ errorMessage }}</div>
-</ng-template>

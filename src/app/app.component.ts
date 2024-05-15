@@ -40,7 +40,7 @@ repoFetchError: boolean = false;
         // Reset user and repositories on error
         this.user = null;
         this.repositories = [];
-        this.errorMessage = 'Error fetching user information';
+        this.errorMessage = 'Invalid user name';
         this.userFetchError = true; // Set user fetch error flag
       }
     );

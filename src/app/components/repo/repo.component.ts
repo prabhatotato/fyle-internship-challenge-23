@@ -2,13 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-repo',
-  template: `
-    <div *ngFor="let repo of repositories">
-      <h3>{{ repo.name }}</h3>
-      <p>{{ repo.description }}</p>
-      <!-- Add more details as needed -->
-    </div>
-  `,
+  templateUrl:'./repo.component.html' ,
   styles: []
 })
 export class RepoComponent {

@@ -1,4 +1,23 @@
-<form (ngSubmit)="search()">
-    <input name="username" type="text" [(ngModel)]="username" placeholder="Enter GitHub username">
-    <button type="submit">Search</button>
-  </form>
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <!-- Logo or application name (if applicable) -->
+    <a href="#" class="text-white font-semibold text-lg">Find My</a>
+
+    <!-- Search form -->
+    <form class="flex items-center" (ngSubmit)="search()">
+      <input 
+        name="username" 
+        type="text" 
+        [(ngModel)]="username" 
+        placeholder="Enter GitHub username" 
+        class="px-4 py-2 mr-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 bg-white"
+      >
+      <button 
+        type="submit" 
+        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
