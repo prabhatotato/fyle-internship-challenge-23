@@ -17,13 +17,13 @@ export class AppComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.fetchUser('johnpapa');
-    this.fetchRepos('johnpapa');
+    
   }
 
   fetchUser(username: string) {
     this.apiService.getUser(username).subscribe(user => {
       this.user = user;
+      this.fetchRepos(username); // Call fetchRepos after fetching user data
     });
   }
 

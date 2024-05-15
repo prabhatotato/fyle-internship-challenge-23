@@ -1,5 +1,21 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
-  </div>
+<div>
+  <app-search (searchUser)="fetchUser($event)"></app-search>
+</div>
+
+<div *ngIf="user">
+  <app-user [user]="user"></app-user>
+</div>
+
+<div>
+  <app-repo [repositories]="repositories"></app-repo>
+</div>
+
+<div>
+  <app-index 
+    (nextPage)="nextPage()" 
+    (prevPage)="prevPage()" 
+    (updatePerPage)="updatePerPage($event)"
+    [currentPage]="currentPage"
+    [perPage]="perPage">
+  </app-index>
 </div>
