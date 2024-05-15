@@ -65,18 +65,19 @@ repoFetchError: boolean = false;
 
   nextPage() {
     this.currentPage++;
-    this.fetchRepos('johnpapa');
+    this.fetchRepos(this.user.login);
   }
 
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.fetchRepos('johnpapa');
+      this.fetchRepos(this.user.login);
     }
   }
 
   updatePerPage(perPage: number) {
     this.perPage = perPage;
-    this.fetchRepos('johnpapa');
+    this.currentPage = 1; // Reset current page to 1 when changing items per page
+    this.fetchRepos(this.user.login); // Fetch data for the first page with the new items per page
   }
 }

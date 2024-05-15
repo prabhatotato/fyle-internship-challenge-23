@@ -44,5 +44,11 @@
 
   <!-- Index Component -->
 
-  <app-index></app-index>
+  <app-index
+  [currentPage]="currentPage" 
+    [perPage]="perPage" 
+    (nextPage)="nextPage()" 
+    (prevPage)="prevPage()" 
+    (updatePerPage)="updatePerPage($event)"
+  ></app-index>
 </div>
