@@ -12,6 +12,10 @@ export class AppComponent implements OnInit{
   currentPage = 1;
   perPage = 10;
 
+  errorMessage: string = '';
+  userFetchError: boolean = false;
+repoFetchError: boolean = false;
+
   constructor(
     private apiService: ApiService
   ) {}
@@ -22,15 +26,41 @@ export class AppComponent implements OnInit{
 
   fetchUser(username: string) {
     this.apiService.getUser(username).subscribe(user => {
-      this.user = user;
-      this.fetchRepos(username); // Call fetchRepos after fetching user data
-    });
+        this.user = user;
+
+        // Reset repositories when fetching a new user
+        this.repositories = [];
+
+        this.fetchRepos(username); // Call fetchRepos after fetching user data
+        this.errorMessage = ''; // Reset error message
+        this.userFetchError = false; // Reset user fetch error flag
+      },
+      error => {
+        console.error('Error fetching user:', error);
+        // Reset user and repositories on error
+        this.user = null;
+        this.repositories = [];
+        this.errorMessage = 'Error fetching user information';
+        this.userFetchError = true; // Set user fetch error flag
+      }
+    );
   }
 
   fetchRepos(username: string) {
-    this.apiService.getRepos(username, this.currentPage, this.perPage).subscribe(repos => {
-      this.repositories = repos;
-    });
+        this.apiService.getRepos(username, this.currentPage, this.perPage).subscribe(repos => {
+        this.repositories = repos;
+        this.errorMessage = ''; // Reset error message
+        this.repoFetchError = false; // Reset repository fetch error flag
+      },
+      error => {
+        console.error('Error fetching repositories:', error);
+        // Reset repositories on error
+        this.repositories = [];
+        this.errorMessage = 'Error fetching repositories';
+        this.repoFetchError = true; // Set repository fetch error flag
+      }
+
+    );
   }
 
   nextPage() {

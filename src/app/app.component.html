@@ -2,20 +2,19 @@
   <app-search (searchUser)="fetchUser($event)"></app-search>
 </div>
 
-<div *ngIf="user">
+<div *ngIf="!userFetchError && user">
   <app-user [user]="user"></app-user>
 </div>
+<ng-container *ngIf="!userFetchError; else userError">
+  <div *ngIf="user && repositories.length === 0">No repositories found</div>
+</ng-container>
+<ng-template #userError>
+  <div *ngIf="errorMessage">Error: {{ errorMessage }}</div>
+</ng-template>
 
-<div>
+<div *ngIf="!repoFetchError && repositories.length > 0">
   <app-repo [repositories]="repositories"></app-repo>
 </div>
-
-<div>
-  <app-index 
-    (nextPage)="nextPage()" 
-    (prevPage)="prevPage()" 
-    (updatePerPage)="updatePerPage($event)"
-    [currentPage]="currentPage"
-    [perPage]="perPage">
-  </app-index>
-</div>
+<ng-template #repoError>
+  <div *ngIf="errorMessage">Error: {{ errorMessage }}</div>
+</ng-template>
