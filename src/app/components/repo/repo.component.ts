@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class RepoComponent {
   @Input() repositories!: any[]; // Non-null assertion operator
+  @Input() loading: boolean = false; // New loading input
+  
 }

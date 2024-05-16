@@ -18,14 +18,14 @@
 
   <!-- User Content -->
   <ng-template #userContent>
-    <div *ngIf="user && repositories.length === 0" class="text-gray-700">
+    <div *ngIf="user && repositories.length === 0 && searchPerformed" class="text-gray-700">
       No repositories found
     </div>
   </ng-template>
 
   <!-- Repo Component -->
   <div *ngIf="repositories.length > 0 && !repoFetchError" class="mb-8">
-    <app-repo [repositories]="repositories"></app-repo>
+    <app-repo [repositories]="repositories" [loading]="loadingRepos"></app-repo>
   </div>
 
   <!-- Repo Error Message -->
@@ -37,7 +37,7 @@
 
   <!-- Repo Content -->
   <ng-template #repoContent>
-    <div *ngIf="repositories.length === 0 && !userFetchError" class="text-gray-700">
+    <div *ngIf="repositories.length === 0 && !userFetchError && searchPerformed" class="text-gray-700">
       No repositories found
     </div>
   </ng-template>
