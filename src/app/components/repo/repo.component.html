@@ -24,18 +24,18 @@
           <p class="text-white mb-2">{{ repo.description }}</p>
         </div>
         <!-- more details here -->
-        <div class="flex items-center mt-auto">
-          <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2">Stars: {{ repo.stargazers_count }}</span>
-          <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2">Forks: {{ repo.forks_count }}</span>
+        <div class="flex items-center mt-auto flex-wrap">
+          <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2 mb-1">Stars: {{ repo.stargazers_count }}</span>
+          <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2 mb-1">Forks: {{ repo.forks_count }}</span>
           
           <ng-container *ngIf="repo.language">
             <!-- Render each topic -->
-            <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2"> {{ repo.language }}</span>
+            <span class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2 mb-1"> {{ repo.language }}</span>
           </ng-container>
           <!-- Additional repository topics -->
           <ng-container *ngIf="repo.topics && repo.topics.length">
             <!-- Render each topic -->
-            <span *ngFor="let topic of repo.topics" class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2"> {{ topic }}</span>
+            <span *ngFor="let topic of repo.topics" class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-2 text-white mr-2 mb-1"> {{ topic }}</span>
           </ng-container>
         </div>
       </div>

@@ -77,9 +77,11 @@ export class AppComponent implements OnInit{
   }
 
   nextPage() {
-    this.currentPage++;
     this.loadingRepos = true;
     this.fetchRepos(this.user.login);
+    if(this.repositories.length > 0){
+      this.currentPage++;
+    }
   }
 
   prevPage() {
