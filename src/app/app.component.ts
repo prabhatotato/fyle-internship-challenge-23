@@ -10,14 +10,14 @@ export class AppComponent implements OnInit{
   user: any; // User data
   loadingUser: boolean = false; // Initialize loading state
   loadingRepos:boolean = false; //  loading flag for repositories
-  searchPerformed:boolean = false; // New flag to track if a search has been performed
+  searchPerformed:boolean = false; // flag to track if a search has been performed
   repositories: any[] = []; // Repositories data
   currentPage = 1;
   perPage = 10;
 
   errorMessage: string = '';
   userFetchError: boolean = false;
-repoFetchError: boolean = false;
+  repoFetchError: boolean = false;
 
   constructor(
     private apiService: ApiService

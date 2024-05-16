@@ -20,17 +20,13 @@ export class ApiService {
   getUser(githubUsername: string): Observable<any> {
 
     if (this.userCache.has(githubUsername)) {
-      console.log("user data returned from cache");
-      
       return of(this.userCache.get(githubUsername));
     }
 
     return this.httpClient.get(`${this.BASE_URL}/${githubUsername}`)
       .pipe(
         tap(data => {
-          console.log('Fetched user data:', data);
-          this.userCache.set(githubUsername, data)
-
+          this.userCache.set(githubUsername, data);
         }),
         catchError(this.handleError)
       );
@@ -40,7 +36,6 @@ export class ApiService {
     const cacheKey = `${githubUsername}|${page}|${perPage}`;
 
     if (this.repoCache.has(cacheKey)) {
-      console.log("repos returned from cache");
       return of(this.repoCache.get(cacheKey));
     }
 
@@ -48,7 +43,6 @@ export class ApiService {
     return this.httpClient.get<any>(url)
       .pipe(
         tap(data => {
-          console.log('Fetched repositories:', data);
           this.repoCache.set(cacheKey, data)
         }),
         catchError(this.handleError)
