@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class UserComponent {
   @Input() user: any;
+  @Input() loading: boolean = false; //  input property to control loading state
 }

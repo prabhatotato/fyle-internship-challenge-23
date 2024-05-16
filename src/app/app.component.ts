@@ -8,6 +8,7 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit{
   user: any; // User data
+  loadingUser: boolean = false; // Initialize loading state
   repositories: any[] = []; // Repositories data
   currentPage = 1;
   perPage = 10;
@@ -25,8 +26,10 @@ repoFetchError: boolean = false;
   }
 
   fetchUser(username: string) {
+    this.loadingUser = true; // Set loading state to true before API call
     this.apiService.getUser(username).subscribe(user => {
         this.user = user;
+        this.loadingUser = false; // Set loading state to false after API call is completed
 
         // Reset repositories when fetching a new user
         this.repositories = [];
@@ -38,6 +41,8 @@ repoFetchError: boolean = false;
       error => {
         console.error('Error fetching user:', error);
         // Reset user and repositories on error
+        this.loadingUser = false; // Make sure to set loading state to false on error as well
+
         this.user = null;
         this.repositories = [];
         this.errorMessage = 'Invalid user name';

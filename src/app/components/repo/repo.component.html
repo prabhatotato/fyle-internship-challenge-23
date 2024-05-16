@@ -1,13 +1,16 @@
-<div *ngFor="let repo of repositories" class="mb-4">
-    <div class="border rounded p-4">
-      <h3 class="text-lg font-semibold">{{ repo.name }}</h3>
-      <p class="text-gray-700 mb-2">{{ repo.description }}</p>
-      <!-- Add more details as needed -->
-      <div class="flex items-center">
-        <span class="text-gray-600 mr-2">Language: {{ repo.language }}</span>
-        <span class="text-gray-600 mr-2">Stars: {{ repo.stargazers_count }}</span>
-        <span class="text-gray-600 mr-2">Forks: {{ repo.forks_count }}</span>
+<div class="grid grid-cols-2 gap-4">
+  <div *ngFor="let repo of repositories" class="mb-4">
+    <div class="bg-white rounded-lg shadow-md">
+      <div class="border rounded p-4">
+        <h3 class="text-lg font-semibold">{{ repo.name }}</h3>
+        <p class="text-gray-700 mb-2">{{ repo.description }}</p>
+        <!-- more details here -->
+        <div class="flex items-center">
+          <span class="text-gray-600 mr-2">Language: {{ repo.language }}</span>
+          <span class="text-gray-600 mr-2">Stars: {{ repo.stargazers_count }}</span>
+          <span class="text-gray-600 mr-2">Forks: {{ repo.forks_count }}</span>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>
