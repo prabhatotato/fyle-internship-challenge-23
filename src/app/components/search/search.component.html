@@ -1,7 +1,8 @@
-<nav class="bg-gray-800 p-4">
+<nav class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent p-4">
+
   <div class="container mx-auto flex items-center justify-between">
     <!-- Logo or application name (if applicable) -->
-    <a href="#" class="text-white font-semibold text-lg">git scout -g</a>
+    <a href="#" class="text-white font-bold text-2xl">git scout -g</a>
 
     <!-- Search form -->
     <form class="flex items-center" (ngSubmit)="search()">
@@ -10,11 +11,11 @@
         type="text" 
         [(ngModel)]="username" 
         placeholder="Enter GitHub username" 
-        class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+        class="border-2 border-white/20 bg-white/20 backdrop-blur-md h-10 px-5 pr-16 rounded-lg text-sm text focus:outline-none  text-white"
       >
       <button 
         type="submit" 
-        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+        class="ml-2 px-4 py-2 bg-white/20 text-white rounded-lg shadow-lg ring-1 ring-white/10 backdrop-blur-md border border-white/20 bg-gradient-to-r from-white/20 to-transparent hover:bg-white/30 focus:outline-none focus:bg-white/30"
       >
         Search
       </button>

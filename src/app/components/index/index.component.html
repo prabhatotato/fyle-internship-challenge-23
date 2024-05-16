@@ -1,26 +1,31 @@
-<div class="flex items-center justify-center mt-8">
+<div class="isolate rounded-xl bg-white/20 shadow-lg ring-1 ring-white/10 backdrop-blur-lg border border-white/20 bg-gradient-to-r from-white/20 to-transparent flex items-center justify-center mt-8 p-2">
   <button 
     (click)="onPrevPage()" 
-    class="bg-blue-500 text-white px-4 py-2 rounded-l-lg focus:outline-none hover:bg-blue-600"
+    class="w-24 bg-white/20 text-white px-4 py-2 rounded-l-lg shadow-lg ring-1 ring-white/10 backdrop-blur-md border border-white/20 bg-gradient-to-r from-white/20 to-transparent focus:outline-none hover:bg-white/30 mr-2"
   >
     Previous
   </button>
-  <span class="px-4 py-2 bg-gray-200">{{ currentPage }}</span>
+
+  <span class="px-4 py-2 bg-white/20 text-white rounded shadow-lg ring-1 ring-white/10 backdrop-blur-md border border-white/20 bg-gradient-to-r from-white/20 to-transparent mr-2">
+    {{ currentPage }}
+  </span>
+
   <button 
     (click)="onNextPage()" 
-    class="bg-blue-500 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-blue-600"
+    class="w-24 bg-white/20 text-white px-4 py-2 rounded-r-lg shadow-lg ring-1 ring-white/10 backdrop-blur-md border border-white/20 bg-gradient-to-r from-white/20 to-transparent focus:outline-none hover:bg-white/30 mr-2"
   >
     Next
   </button>
+
   <select 
     [(ngModel)]="perPage" 
     (change)="onUpdatePerPage()" 
-    class="ml-4 px-4 py-2 bg-gray-200 rounded-lg focus:outline-none"
+    class="ml-4 px-4 py-2 bg-white/20 text-white rounded-lg shadow-lg ring-1 ring-white/10 backdrop-blur-md border border-white/20 bg-gradient-to-r from-white/20 to-transparent focus:outline-none"
   >
-    <option value="6">6 per page</option>
-    <option value="10">10 per page</option>
-    <option value="20">20 per page</option>
-    <option value="50">50 per page</option>
-    <option value="100">100 per page</option>
+    <option value="6" class="bg-black text-white">6 per page</option>
+    <option value="10" class="bg-black text-white">10 per page</option>
+    <option value="20" class="bg-black text-white">20 per page</option>
+    <option value="50" class="bg-black text-white">50 per page</option>
+    <option value="100" class="bg-black text-white">100 per page</option>
   </select>
 </div>
