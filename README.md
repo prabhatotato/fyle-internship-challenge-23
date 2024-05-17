@@ -1,43 +1,34 @@
-# Fyle Frontend Challenge
+# git scout -g
 
-## Who is this for?
+## Running Unit Tests
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. The candidate should be able to commit to at least 6 months of dedicated time for internship.
+To run the unit tests and check the code coverage, follow these steps:
 
-## Why work at Fyle?
+1. **Install Dependencies**: Ensure you have installed all dependencies by running:
+    ```bash
+    npm install
+    ```
 
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
+2. **Run Tests**: Execute the following command to run all tests and generate a coverage report:
+    ```bash
+    ng test --code-coverage
+    ```
 
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
+3. **View Coverage Report**: After the tests complete, a coverage report will be generated in the `coverage` directory. Open the `index.html` file in a web browser to view the detailed coverage report.
 
-## Challenge outline
+## Unit Tests
 
-This challenge involves implementing application using github api. 
+### UserComponent
 
-The services that you need to use are already implemented - check out ApiService.
+- Test for creating the component.
+- Test for rendering input field and search button.
+- Test for updating the username property when input value changes.
+- Test for emitting `searchUser` event with the correct username when form is submitted.
+- Test for not emitting `searchUser` event when the username is empty.
 
-You can see details of this challenge [here](https://fyleuniverse.notion.site/fyleuniverse/Fyle-Frontend-development-challenge-cb5085e5e0864e769e7b98c694400aaa)
+### ApiService
 
-__Note__ - This challenge is in angular. We work on angular frameworks & after you join we expect the same from you. Hence it is required to complete this assignement in angular itself.
-
-## What happens next?
-
-You will hear back within 48 hours from us via email.
-
-## Installation
-
-1. Fork this repository to your github account.
-2. Clone the forked repository and proceed with steps mentioned below.
-
-### Install requirements
-* Install angular cli [Ref](https://angular.io/cli)
-* `npm install` in this repository 
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Further help
-
-Visit the [Angular Documentation](https://angular.io/guide/styleguide) to learn more.
-Styling is to be strictly done with [Tailwind](https://tailwindcss.com/docs/installation).
+- Test for creating the service.
+- Test for retrieving user data from the API and caching it.
+- Test for retrieving user repos from the API and caching them.
+- Test for handling errors and returning an observable error.

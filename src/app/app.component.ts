@@ -7,6 +7,7 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  title:string = 'fyle-frontend-challenge'
   user: any; // User data
   loadingUser: boolean = false; // Initialize loading state
   loadingRepos:boolean = false; //  loading flag for repositories
@@ -77,11 +78,10 @@ export class AppComponent implements OnInit{
   }
 
   nextPage() {
+    this.currentPage++;
     this.loadingRepos = true;
     this.fetchRepos(this.user.login);
-    if(this.repositories.length > 0){
-      this.currentPage++;
-    }
+    
   }
 
   prevPage() {
