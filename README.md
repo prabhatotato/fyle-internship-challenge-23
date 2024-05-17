@@ -14,7 +14,7 @@ To run the unit tests and check the code coverage, follow these steps:
     ng test --code-coverage
     ```
 
-3. **View Coverage Report**: After the tests complete, a coverage report will be generated in the `coverage` directory. Open the `index.html` file in a web browser to view the detailed coverage report.
+3. **View Coverage Report**: After the tests complete, a coverage report will be generated in the terminal.
 
 ## Unit Tests
 
